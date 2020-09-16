@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" xml:lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <link type="text/css" rel="stylesheet" href="ocolor.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">  
+        <title>Random Backgr Generator</title>
+    </head>
+    
+    <body lang="en" class="en" onload="toggles(1), colors(), resets()">       
+        <header id="menu">
+            <ul id="resources-menu">
+                <li onclick="popup('resize')">
+                    Resize Canvas
+                </li>
+                <li onclick="popup('backgr'), imports()">
+                    Add Background
+                </li>
+                <li id="clearer" onclick="clears()">
+                    Clear Canvas
+                </li>
+                <li onclick="exports()">
+                    Export Files
+                </li>
+            </ul>
+        </header>
+        <header class="menu">
+            <h6 id="menu-intro">Content Editing Menu</h6>
+            <section id="actions">
+                <ul>
+                    <li id="shape" class="major-actions">
+                        <div class="wrap" onclick="toggles(2)">
+                            Shape
+                            <img id="arrow2" class="arrow" src="img/arrow.png">
+                        </div>
+                        <form id="form2">
+                            <div id="shape-list">
+                                <div id="circle" onclick="allShapes('circle')"></div>
+                                <div id="square" onclick="allShapes('square')"></div>
+                                <div id="triangle" onclick="allShapes('triangle')"></div>
+                                <div id="diamond" onclick="allShapes('diamond')">
+                                    <img id="dia" src="img/dia.png">
+                                </div>
+                                <div id="hexagon" onclick="allShapes('hexagon')">
+                                    <img id="hex" src="img/hex.png">
+                                </div>
+                            </div>
+                            <div id="b6" class="block, hides">
+                                <input type="number" name="rotation" min="0" max="180" value="0" oninput="param('0')">                    
+                                <label for="rotation">Rotate</label>
+                            </div>
+                        </form>
+                    </li>
+                    <li id="color" class="major-actions">
+                        <div class="wrap" onclick="toggles(1)">
+                            Color
+                            <img id="arrow1" class="arrow" src="img/arrow.png">
+                        </div>
+                        <form id="form1">
+                            <div class="block">
+                                <span id="sp1">RGB &nbsp &nbsp</span>
+                                <select id="color-select" name="color" onchange="colors()">
+                                    <option value="solid" selected>Solid</option>
+                                    <option value="gradient">Gradient</option>
+                                    <option value="pattern">Pattern</option>
+                                    <option value="image">Image</option>
+                                </select>
+                                <span id="sp2">&nbsp &nbsp Alpha</span>
+                            </div>
+                            <div id="b0" class="block, hides">
+                                RGB &nbsp &nbsp
+                                <select id="pattern-select0" name="pattern" onchange="patternSelect('1')">
+                                    <option value="stripes" selected>Stripes</option>
+                                    <option value="crossed">Crossed</option>
+                                    <option value="checkers">Checkers</option>
+                                </select>
+                                &nbsp &nbsp Alpha                                
+                            </div>
+                            <div id="b1" class="block, hides">
+                                <label for="color1">Color1 &nbsp</label>
+                                <input id="color1" type="color" name="color1" oninput="param('1')" value="#000000">
+
+                                <input id="alpha1" type="number" name="alpha1" min="0" max="100" value="100" step="1" oninput="param('2')">
+                                <label for="alpha1">&nbsp Color1</label>
+                            </div>
+                            <div id="b2" class="block, hides">
+                                <label for="color1">Color2</label>
+                                <input id="color2" type="color" name="color2" oninput="param('3')" value="#000000">
+            
+                                <input id="alpha2" type="number" name="alpha2" min="0" max="100" value="100" step="1" oninput="param('4')">
+                                <label for="alpha2">Color2</label>
+                            </div>
+                            <div id="b3" class="block">
+                                <label for="color1">Stroke &nbsp</label>
+                                <input id="color3" type="color" name="color3" oninput="param('5')" value="#000000">
+
+                                <input id="alpha3" type="number" name="outline" min="0" max="100" value="0" step="1" oninput="param('6')">
+                                <label for="outline">&nbsp Stroke</label>
+                            </div>
+                            <div id="b4" class="block, hides">
+                                <input id="angle" type="number" name="angle" min="0" max="90" value="45" step="1" oninput="param('7')">
+                                <label for="angle">Angle</label>
+                            </div>
+                            <div id="b5" class="block, hides" oninput="param('8'), imgs()">
+                                <input type="file" name="image">
+                            </div>
+                        </form> 
+                    </li>
+                    <li id="size-number" class="major-actions">
+                        <div class="wrap" onclick="toggles(3)">
+                            Size & Number
+                            <img id="arrow3" class="arrow" src="img/arrow.png">
+                        </div>
+                        <form id="form3">
+                            <div class="block">
+                                <input id="size" type="number" name="size" min="1" max="50" value="15" step="1" oninput="param('9')">
+                                <label id="sizeLab" for="size">Size</label>
+                                
+                                <input id="num" type="number" name="num" min="1" max="40" value="1" step="1" oninput="param('10')">
+                                <label id="numLab" for="num">Nr</label>
+                            </div>
+                        </form>
+                    </li>
+                    <li id="animate" class="major-actions">
+                        <div class="wrap" onclick="toggles(4)">
+                            Animation
+                            <img id="arrow4" class="arrow" src="img/arrow.png">
+                        </div>
+                         <form id="form4">
+                            <div class="block">
+                                <select id="animations" name="animation" onchange="anims()">
+                                    <option value="none" selected>None</option>
+                                    <option value="glow">Glow</option>
+                                    <option value="spin">Spin</option>
+                                    <option value="morph">Morph</option>
+                                    <option value="orbit">Orbit</option>
+                                    <option value="jump">Jump</option>
+                                    <option value="outline">Outline</option>
+                                </select>
+                            </div>
+                            <div id="b7" class="block, hides">
+                                <div id="list2">
+                                    <div id="circle2" onclick="allShapes2('circle2')"></div>
+                                    <div id="square2" onclick="allShapes2('square2')"></div>
+                                    <div id="triangle2" onclick="allShapes2('triangle2')"></div>
+                                    <div id="diamond2" onclick="allShapes2('diamond2')">
+                                        <img id="dia2" src="img/dia.png">
+                                    </div>
+                                    <div id="hexagon2" onclick="allShapes2('hexagon2')">
+                                        <img id="hex2" src="img/hex.png">
+                                    </div>
+                                </div>
+                                <input id="delays" type="number" name="delay" min="0" max="20" value="0" step="1" oninput="param('11')">
+                                <label for="delay">Start Delay</label>
+                                <br>
+                                <input id="duration" type="number" name="durs" min="1" max="60" value="3" step="1" oninput="param('12')">
+                                <label for="durs">Duration</label>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </section>
+            <section class="buttons">
+                <ul id="main2" class="main-actions-menu">
+                    <li>
+                        <ul class="submenu2">
+                            <li id="add" class="aplications" onclick="contents('add'), applies('from-shapes')">Add</li>
+                            <li id="select" class="aplications" onclick="contents('select'), applies('from-shapes')">Select</li>
+                            <li id="edit" class="aplications" onclick="contents('edit'), applies('from-shapes')">Edit</li>
+                            <li id="remove" class="aplications" onclick="contents('remove'), applies('from-shapes')">Remove</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </header>
+        <main>      
+            <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="800" height="450" viewBox="0 0 800 450" fillRule="non-zero">
+                <defs id="defs">
+                    <pattern id="img1" patternUnits="userSpaceOnUse" width="800" height="450">
+                        <image id="backgr-img" transform="scale(1.35)" transform-origin="center center" href="" x="0" y="0" width="800" height="450"/>
+                    </pattern>
+                </defs>
+                <path id="path0" d="M0,0 800,0 800 450 0 450z" fill="none" fill-opacity="1" />
+            </svg>
+        </main>
+        <section id="import-popup">
+            <header id="import-window">
+                <section id="backgr" class="hides">
+                    <div class="block2">                    
+                        <select id="types" name="colors2" onchange="imports()">
+                            <option value="solid" selected>Solid</option>
+                            <option value="gradient">Gradient</option>
+                            <option value="pattern">Pattern</option>
+                            <option value="image">Image</option>
+                        </select>
+                    <div id="b9" class="hides">                    
+                        <select id="pattern-select1" name="pattern2" onchange="patternSelect('4')">
+                            <option value="stripes" selected>Stripes</option>
+                            <option value="crossed">Crossed</option>
+                            <option value="checkers">Checkers</option>
+                        </select>
+                    </div>
+                    <div id="b10" class="block2, hides">
+                        <input id="color21" type="color" name="color21" oninput="param('13')" value="#000000">
+
+                        <input id="alpha21" type="number" name="alpha21" min="0" max="100" value="100" step="1" oninput="param('14')">
+                        <label for="alpha21">RGBA</label>
+                    </div>
+                    <div id="b11" class="block2, hides">
+                        <input id="color22" type="color" name="color22" oninput="param('15')" value="#000000">
+
+                        <input id="alpha22" type="number" name="alpha22" min="0" max="100" value="100" step="1" oninput="param('16')">
+                        <label for="alpha22">RGBA</label>
+                    </div>
+                    <div id="b12" class="block2, hides">
+                        <input id="angle2" type="number" name="angle2" min="0" max="90" value="45" step="1" oninput="param('17')">
+                        <label for="angle2">Angle</label>
+                    </div>
+                    <div id="b13" class="block2, hides" oninput="param('18')">
+                        <input type="file" name="image">
+                    </div>
+                </section>
+                <section id="resize" class="hides">
+                    <label>
+                        <input type="radio" id="opt1" name="canvas" value="1920px">
+                        1920px - 1080px
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" id="opt2" name="canvas" value="1366px">
+                        1366px - 768px
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" id="opt3" name="canvas" value="1280px">
+                        1280px - 720px
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" id="opt4" name="canvas" value="800px" checked>
+                        800px - 450px
+                    </label>
+                    <br><br>
+                    <label>
+                        <input type="radio" id="opt5" name="side" value="landscape" checked>
+                        Landscape
+                    </label>
+                    <br>
+                    <label>
+                        <input type="radio" id="opt6" name="side" value="portrait">
+                        Portrait
+                    </label>
+                    <br>
+                </section>
+                <div id="buttons2" class="block2">
+                    <div id="ok" onclick="sizes(), imports2()">
+                        OK!
+                    </div>
+                    <div id="next" onclick="popupClose()">
+                        Close
+                    </div>
+                </div>
+            </header>
+        </section>
+        <footer>
+            <h6 id="tips">
+                Click on the canvas to directly Add, Select, Edit or Remove shapes, depending on the selected mode.
+            </h6>
+        </footer>
+        <script type="application/javascript" src="ocolor.js"> </script>
+    </body>
+</html>

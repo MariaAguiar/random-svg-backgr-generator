@@ -1,0 +1,655 @@
+/*CSS Document*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+@media all{
+    #menu{
+        height: 85px;
+    }
+    
+    li{
+        padding: 1.55em 3vw;
+        font-size: 16px;
+    }
+}
+
+html, body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.65px;
+    font-size: 1em;
+    font-size: calc(0.8em + 0.5vw);
+    font-size: -webkit-calc(0.8em + 0.5vw);
+    font-size: -moz-calc(0.8em + 0.5vw);
+}
+
+#menu, footer{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    right: 0;
+    z-index: 100;
+}
+
+
+footer{
+    top: 25px;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer>h6{
+    position: fixed;
+    margin: 2.5%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 0.55em;
+    letter-spacing: 1px;
+    line-height: 15px;
+    color: rgb(200, 200, 200);
+}
+
+footer>h6:hover{
+    color: grey;    
+}
+
+.menu{
+    position: fixed;
+    top: 0;
+    width: calc(275px + 1.75vw);
+    left: 5%;
+    height: 100%;
+    z-index: 200;
+}
+
+#menu-intro{
+    position: relative;
+    top: 1.925vw;
+    width: 90%;
+    left: 5%;
+    text-align: center;
+    padding: 0 0 0.45vw 0;
+}
+
+#resources-menu{
+    position: fixed;
+    width: 75%;
+    height: 100%;
+    right: 0;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    height: 9vw;
+    z-index: 50;
+}
+
+#actions{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    height: 66.75%;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+#actions>ul{
+    margin: 0;
+    padding: 0;
+    left: 0;  
+}
+
+#menu2{
+    right: 0;
+    margin: 0;
+    box-shadow: 0 0 2px 2px grey;
+}
+
+li{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.1em 2vw;
+    padding: 1em calc(5px + 1vw);
+    padding: 1em -webkit-calc(5px + 1vw);
+    padding: 1em -moz-calc(5px + 1vw);
+    font-size: 0.65em;
+    text-align: center;
+    list-style: none;
+}
+
+#resources-menu>li{
+    padding: 1.1em 2vw;
+    padding: 1em calc(5px + 2.25vw);
+    padding: 1em -webkit-calc(5px + 2.25vw);
+    padding: 1em -moz-calc(5px + 2.25vw);
+    cursor: pointer;
+}
+
+.main-actions-menu{
+    padding: 0;
+    position: relative;
+}
+
+
+.main-actions-menu>li{
+    padding: 0.5vw 0.75vw;
+}
+
+.submenu2{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32.5px;
+    margin: 0;
+    padding: 0;
+}
+
+.submenu2>li{
+    flex-direction: row;
+    cursor: pointer;
+    padding: 0.5vw 0.75vw;
+    font-size: 1em;    
+}
+
+.buttons{
+    box-shadow: 0 0 2px 2px grey;
+    border-radius: 5px;
+    margin-bottom: 3.5px;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    bottom: 75px;
+    bottom: calc(35px + 2.75vw);
+    bottom: -webkit-calc(35px + 2.75vw);
+    bottom: -moz-calc(35px + 2.75vw);
+    background-color: white;
+}
+
+#main2{
+    margin-top: 0;
+}
+
+.aplications{
+    border-radius: 5px;
+}
+
+#add{
+    box-shadow: 0 0 2px 2px darkseagreen;
+}
+
+.icon{
+    height: 25px;
+    height: calc(10px + 1vw);
+    height: -moz-calc(10px + 1vw);
+    height: -webkit-calc(10px + 1vw);
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+svg{
+    position: absolute;
+    left: 62.5%;
+    margin-left: -400px;
+    top: 50%;
+    margin-top: -210px;
+    box-shadow: 0 0 2px 2px grey;
+    border-radius: 10px;
+    z-index: 300;
+    background-color: white;
+}
+
+path:not(#path0){
+    cursor:pointer;
+}
+
+.svg1{
+    transform: scale(0.4);
+    margin-left: -960px;
+    margin-top: -520px;
+    box-shadow: 0 0 5px 5px grey;
+}
+
+.svg2{
+    transform: scale(0.25);
+    margin-left: -540px;
+    margin-top: -920px;
+    box-shadow: 0 0 7px 7px grey;
+}
+
+.svg3{
+    transform: scale(0.625);
+    margin-left: -683px;
+    margin-top: -360px;
+    box-shadow: 0 0 3px 3px grey;
+}
+
+.svg4{
+    transform: scale(0.35);
+    margin-left: -384px;
+    margin-top: -660px;
+    box-shadow: 0 0 7px 7px grey;
+}
+
+.svg5{
+    transform: scale(0.625);
+    margin-left: -640px;
+    margin-top: -340px;
+    box-shadow: 0 0 3px 3px grey;
+}
+
+.svg6{
+    transform: scale(0.425);
+    margin-left: -360px;
+    margin-top: -520px;
+    box-shadow: 0 0 6px 6px grey;
+}
+
+.svg7{
+    transform: scale(0.6);
+    margin-left: -222.5px;
+    margin-top: -360px;
+    box-shadow: 0 0 3px 3px grey;
+}
+
+
+#import-popup{
+    position: fixed;
+    background-color: rgba(220,220,220,0.65);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    top: 5%;
+    display: none;
+    z-index: 300;
+}
+
+#import-window{
+    position: fixed;
+    background-color: white;
+    width: 275px;
+    left: 50%;
+    margin-left: -137.5px;
+    height: 400px;
+    top: 50%;
+    margin-top: -200px;
+    box-shadow: 0 0 2px 2px grey;
+    border-radius: 5px;
+    z-index: 550;
+    font-size: 0.7em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.block2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+}
+
+.block2>input, .block2>label, .block2>div, #import-window>div{
+    padding: 15px 0 0 0;
+    margin: -10px 5px 5px 5px;
+}
+
+#b12>input{
+    position: relative;
+    left: 12.5%;
+}
+
+#buttons2{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 10px;
+}
+
+#buttons2>div{
+    box-shadow: 0 0 2px 2px grey;
+    padding: 5px 7.5px;
+    border-radius: 5px;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+    z-index: 450;
+    cursor: pointer;
+}
+
+#close{
+    position: absolute;
+    top: 1em;  
+    right: 1em;
+}
+
+form{
+    position: relative;
+    top: 5px;
+    display: none;
+}
+
+#form6{
+    display: block;
+}
+
+form>input[type=color], form>input[type=number]{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+    padding: 0;
+    margin: 0.65em 0;
+}
+
+select{
+    margin: 0;
+    padding: 0;
+}
+
+input, select{
+    cursor: pointer;
+}
+
+input[type=color]{
+    width: 40px;
+    border-radius: 5px;
+}
+
+input[type=number]{
+    width: 45px;
+}
+
+label{
+    padding: 0;
+    font-size: 0.8em;
+    margin: 0.5em;
+    color: grey;
+}
+
+#b0, #titled{
+    color: grey;
+}
+
+#titled{
+    color: rgb(175,175,175);
+    font-size: 0.6em;
+    padding: 0.375vw 0 0.125vw 0;
+}
+
+.main-actions-menu>li{
+    padding: 0.65em 0;
+}
+
+#actions>ul{
+    position: relative;
+    top: 10px;
+}
+
+.major-actions{
+    width: 90%;
+    left: 5%;
+    padding: 10px 0;
+    margin-top: 12.5px;
+    box-shadow: 0 0 2px 2px grey;
+    border-radius: 5px;
+}
+
+#shape{
+    margin-top: 0;
+}
+
+.arrow{
+    width: 15px;
+}
+
+.major-actions>form>.block{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
+
+input, label, select{
+    margin: 2.5px 5px;
+}
+
+#b5{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    left: 12.5%;
+}
+
+.hides{
+    display: none;
+}
+
+.wrap{
+    cursor: pointer;
+}
+
+#shape-list, #list2{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#shape-list>div, #list2>div{
+    margin: 8.5px;
+    cursor: pointer;
+}
+
+#circle, #square, #circle2, #square2{
+    width: 17.5px;
+    height: 17.5px;
+    border-radius: 10px;
+    background-color: darkseagreen;
+}
+
+#square, #square2{
+    border-radius: 0;
+    background-color: black;
+}
+
+#triangle, #triangle2{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 11.5px 17.5px 11.5px;
+    border-color: transparent transparent black transparent;
+}
+
+#diamond, #hexagon, #diamond2, #hexagon2{
+    display: block;
+    width: 20px;
+    height: 18px;
+    background-color: black;
+}
+
+#dia, #hex, #dia2, #hex2{
+    display: block;
+    width: 20px;
+    height: 18px;
+}
+
+#diamond, #dia, #diamond2, #dia2{
+    width: 26px;
+    height: 24px;
+}
+
+@media only screen and (max-width: 1200px){
+    svg{
+        transform: scale(0.85);
+    }
+    
+    .svg1{
+        transform: scale(0.225);
+    }
+    
+    .svg2{
+        transform: scale(0.2);        
+    }
+    
+    .svg3, .svg5{
+        transform: scale(0.35);        
+    }
+}
+
+@media only screen and (max-width: 1080px){    
+    svg{
+        transform: scale(0.55);
+    }
+    
+    .svg1{
+        transform: scale(0.25);
+    }
+}
+
+@media only screen and (max-width: 900px){
+    
+    #resources-menu{
+        position: fixed;
+        width: 100%;
+        right: auto;
+        top: 25px;
+        background-color: white;
+    }
+    
+    svg{
+        transform: scale(0.75);
+        top: 40%;
+        left: 50%;
+    }
+    
+    .svg1{
+        transform: scale(0.3);
+    }
+    
+    .svg4{
+        transform: scale(0.225);
+    }
+    
+    .svg6{
+        transform: scale(0.25);
+    }
+    
+    .svg7{
+        transform: scale(0.325);      
+    }
+    
+    .menu{
+        position: relative;
+        margin-top: 55%;
+        right: auto;
+        width: 90%;
+        left: 5%;
+        height: auto;
+    }
+    
+    #actions{
+        height: 100%;
+        padding: 0.85em 0;
+        overflow-y: auto;
+    }
+    
+    .buttons{
+        position: relative;
+        height: 27.5px;
+        top: 10px;
+        margin: 0.85em 0;
+    }
+    
+    #main2{
+        position: relative;
+        bottom: 8.5px;
+    }
+}
+
+@media only screen and (max-width: 750px){ 
+    svg{
+        transform: scale(0.6);
+        top: 31.5%;
+    }
+    
+    .svg1{
+        transform: scale(0.2);
+    }
+    
+    .svg2{
+        transform: scale(0.125);
+    }
+    
+    .svg4{
+        transform: scale(0.175);
+    }
+    
+    .svg6{
+        transform: scale(0.2);
+    }
+    
+    .menu{
+        margin-top: 55%;
+    }
+}
+
+@media only screen and (max-width: 600px){ 
+    .menu{
+        margin-top: 62.5%;
+    }
+}
+
+@media only screen and (max-width: 525px){    
+
+    svg{
+        transform: scale(0.475);
+        top: 25%;
+    }
+    
+    .svg1{
+        transform: scale(0.2);
+    }
+    
+    .menu{
+        margin-top: 67.5%;
+    }
+    
+    .submenu2{
+        flex-wrap: wrap;
+    }
+    
+    h6{
+        flex-wrap: wrap;        
+    }
+}
