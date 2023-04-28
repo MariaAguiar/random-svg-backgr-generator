@@ -1,41 +1,41 @@
-let i, j, canvas, context, image, image2;
-let totalShapes=0;
-let svgString, svg, url0, url;
-let n=0;
-let num2=0;
-let last;
-let inputs=[0, "#619FB5", 50, "#C3FF65", 50, "#FFD95C", 25, 45, "", 15, 1, 0, 3, "#87DDB7", 25, "#FEC774", 60, 45 , ""];
-let input = document.getElementsByTagName("input");
-let selects=["solid", "stripes", "none", "solid", "stripes"];
-let select = document.getElementsByTagName("select");
-let options = document.getElementsByTagName("option");
-let value1 = "add";
-let value7 = "circle";
-let value17 = "circle2";
-let prev="add";
-let xx=0;
-let yy=0;
-let zz=0;
-let t, f, s, e, sqrs;
-let n0=1;
-let n01=0;
-let n3=1;
-let n4=1;
-let n5=1;
-let choice=0;
-let timer;
-let n1=1;
-let ways;
-let ww = 800;
-let hh = 450;
-let lasts;
+var i, j, canvas, context, image, image2;
+var totalShapes=0;
+var svgString, svg, url0, url;
+var n=0;
+var num2=0;
+var last;
+var inputs=[0, "#619FB5", 50, "#C3FF65", 50, "#FFD95C", 25, 45, "", 15, 1, 0, 3, "#87DDB7", 25, "#FEC774", 60, 45 , ""];
+var input = document.getElementsByTagName("input");
+var selects=["solid", "stripes", "none", "solid", "stripes"];
+var select = document.getElementsByTagName("select");
+var options = document.getElementsByTagName("option");
+var value1 = "add";
+var value7 = "circle";
+var value17 = "circle2";
+var prev="add";
+var xx=0;
+var yy=0;
+var zz=0;
+var t, f, s, e, sqrs;
+var n0=1;
+var n01=0;
+var n3=1;
+var n4=1;
+var n5=1;
+var choice=0;
+var timer;
+var n1=1;
+var ways;
+var ww = 800;
+var hh = 450;
+var lasts;
 
 // resets input values after the page is refreshed
 function resets(){
-    for(let inp=0; inp<input.length; inp++){
+    for(var inp=0; inp<input.length; inp++){
         input[inp].value=inputs[inp];
     }
-    for(let sels=0; sels<select.length; sels++){
+    for(var sels=0; sels<select.length; sels++){
         select[sels].options[select[sels].selectedIndex].value=selects[sels];
     }
 }
@@ -53,20 +53,20 @@ function contents(val){
 
 // select which menu's contents to display based on the available space
 function toggles(num){
-    for(let x=1; x<5; x++){
+    for(var x=1; x<5; x++){
         if(document.getElementById("form"+x).style.display=="block") num2++;
     }
     
     if(last!=num){
         if(num2>1 || last==4){
-            for(let y=1; y<5; y++){
+            for(var y=1; y<5; y++){
                 document.getElementById("form"+y).style.display="none";
                 document.getElementById("arrow"+y).style.transform="";
             }
         }
         
         if(document.getElementById("form"+num).style.display=="block"){
-            for(let z=1; z<5; z++){
+            for(var z=1; z<5; z++){
                 document.getElementById("form"+z).style.display="none";
                 document.getElementById("arrow"+z).style.transform="";
             }
@@ -92,10 +92,10 @@ function toggles(num){
 
 //select color menu items for display
 function colors(){
-    let selected = select[0].options[select[0].selectedIndex].value;
+    var selected = select[0].options[select[0].selectedIndex].value;
     selects[0]=selected;
     
-    for(let b=0; b<6; b++){
+    for(var b=0; b<6; b++){
         document.getElementById("b"+b).classList.add("hides");
     }
     document.getElementById("sp1").classList.remove("hides");
@@ -121,7 +121,7 @@ function colors(){
 
 
 function patternSelect(pat){
-    let selected = select[pat].options[select[pat].selectedIndex].value;
+    var selected = select[pat].options[select[pat].selectedIndex].value;
     if(pat==1){
         selects[1]=selected;
         if(selects[0]=="pattern" && selects[1]=="checkers"){
@@ -152,7 +152,7 @@ function param(par){
 
 
 function setAttributes(el, attrs){
-    for(let key in attrs){
+    for(var key in attrs){
         el.setAttribute(key, attrs[key]);
     }
 }
@@ -190,7 +190,7 @@ function gradFilters(){
 
 // selects how to add gradients to shapes based on user input
 function patternFilters(){
-    let selected = select[1].options[select[1].selectedIndex].value;
+    var selected = select[1].options[select[1].selectedIndex].value;
 
     defs= document.getElementById("defs");
     patterns = document.createElementNS(NS, 'pattern');
@@ -229,8 +229,8 @@ function patternFilters(){
 
 // gets image input and uses it as svg filter for svg forms
 function imgs(){
-    let one = input[8].value.split('/').pop();
-    let two = one.replace("C:\\fakepath\\", "");
+    var one = input[8].value.split('/').pop();
+    var two = one.replace("C:\\fakepath\\", "");
     inputs[8] = two;
 }
 
@@ -315,8 +315,8 @@ function animaFilters(){
     
     if(selects[2]=="outline"){
         document.getElementById("s"+n1).setAttributeNS(null, "stroke-dashoffset", "0");
-        let dash=document.getElementById("s"+n1).getTotalLength(0);
-        let dash2=dash/18;
+        var dash=document.getElementById("s"+n1).getTotalLength(0);
+        var dash2=dash/18;
         document.getElementById("s"+n1).setAttributeNS(null, "stroke-dasharray", dash2);
         anims1 = document.createElementNS(NS, "animate");
         setAttributes(anims1, {"id": "anima"+n1+"", "begin": ""+inputs[11]+"s; anima"+n1+".end", "dur": ""+inputs[12]+"s", "repeatCount":"1", "attributeName": "stroke-dashoffset", "keyTimes": "0; 1", "values": "" + dash + "; 0"});
@@ -339,9 +339,9 @@ function animaFilters(){
             document.getElementById("s"+n1).setAttributeNS(null, 'd', "M"+ (xx - zz) + " " + yy + " " + (xx - zz*0.5) + " " + (yy - zz*0.866) + " " + xx + " " + (yy - zz*0.866) + " " + (xx + zz*0.5) + " " + (yy - zz*0.866) + " " + (xx + zz) + " " + yy + " " + (xx + zz*0.5) + " " + (yy + zz*0.866) + " " + xx + " " + (yy + zz*0.866) + " " + (xx - zz*0.5) + " " + (yy + zz*0.866) + " Z");
         }
 
-        let ini=document.getElementById("s"+n1).getAttributeNS(null, 'd');
+        var ini=document.getElementById("s"+n1).getAttributeNS(null, 'd');
         
-        let save;
+        var save;
         if(value17=="circle2"){
             save="M"+ (xx-zz) + " " + yy + " a " + zz + " " + zz + " 0 1,1 " + (zz*2) + " ,0 a" + zz + " " + zz + " 0 1,1 " + (-zz*2) + " ,0 " + " Z";
         }else if(value17=="square2"){
@@ -370,8 +370,8 @@ function applies(srcs){
         document.getElementById("tips").innerHTML="Selects shapes on click. Use a single click to select the first shape and a double click <br> to select all shapes with the same parameters. Choosing this mode again clears all selections.";
         
         if(prev=="select"){
-            let ms = document.querySelectorAll(".animas");    
-            for(let mm=0; mm<ms.length; mm++){
+            var ms = document.querySelectorAll(".animas");    
+            for(var mm=0; mm<ms.length; mm++){
                 ms[mm].parentNode.setAttributeNS(null, "stroke", inputs[5]);
                 ms[mm].parentNode.setAttributeNS(null, "stroke-opacity", (inputs[6]/100));
                 ms[mm].remove();
@@ -388,12 +388,12 @@ function applies(srcs){
     prev=value1;
 }
     
-let svg = document.getElementById("mysvg"), NS = svg.getAttribute('xmlns');
+var svg = document.getElementById("mysvg"), NS = svg.getAttribute('xmlns');
 
 
 // second part of the applier function, created to handle letiations in user-selected parameters
 function create(){
-    let svg = document.getElementById("mysvg"), NS = svg.getAttribute('xmlns');
+    var svg0 = document.getElementById("mysvg"), NS = svg0.getAttribute('xmlns');
     shapes = document.createElementNS(NS, 'path');
     
     if(value7=="circle"){
@@ -458,22 +458,22 @@ function sqrs0(){
 
 
 function solves(){
-    let ms = document.querySelectorAll(".animas");    
-    for(let mm=0; mm<ms.length; mm++){
+    var ms = document.querySelectorAll(".animas");    
+    for(var mm=0; mm<ms.length; mm++){
         if(value1=="edit"){
-            let one0 = ms[mm].parentNode.getPointAtLength(0);
-            let one1 = one0.matrixTransform(svg.getScreenCTM().inverse());
-            let two0 = ms[mm].parentNode.getTotalLength(0);
-            let three = Math.round(two0/2);
-            let four = ms[mm].parentNode.getPointAtLength(three);
+            var one0 = ms[mm].parentNode.getPointAtLength(0);
+            var one1 = one0.matrixTransform(svg.getScreenCTM().inverse());
+            var two0 = ms[mm].parentNode.getTotalLength(0);
+            var three = Math.round(two0/2);
+            var four = ms[mm].parentNode.getPointAtLength(three);
             xx = parseInt(Math.round(((four.x - one0.x)/2)+one0.x));
             yy = parseInt(Math.round(((four.y - one0.y)/2)+one0.y));
             
             if(value7=="triangle"){
                 three = Math.round((two0/6)*4);
                 four = ms[mm].parentNode.getPointAtLength(three);
-                let five = Math.round((two0/6)*2);
-                let six = ms[mm].parentNode.getPointAtLength(five);
+                var five = Math.round((two0/6)*2);
+                var six = ms[mm].parentNode.getPointAtLength(five);
                 xx = parseInt(Math.round(((four.x - one0.x)/2)+one0.x));
                 yy = parseInt(Math.round(((six.y - one0.y)/2)+one0.y));
             }
@@ -523,22 +523,22 @@ svg.addEventListener('click',
                 if(lasts!=t.getAttributeNS(null, "id")){
                     t.setAttributeNS(null, "stroke", inputs[5]);
                     t.setAttributeNS(null, "stroke-opacity", (inputs[6]/100));
-                    let dash=t.getTotalLength(0);
-                    let dash2=dash/18;
+                    var dash=t.getTotalLength(0);
+                    var dash2=dash/18;
                     t.setAttributeNS(null, "stroke-dasharray", "0");
-                    let ch = t.childNodes;
+                    var ch = t.childNodes;
                     t.removeChild(ch[0]);
                 }else{
-                    let a1 = t.getAttributeNS(null, "class");  
-                    let a2 = document.querySelectorAll("." + a1 + "");
-                    for(let dd=0; dd<a2.length; dd++){
+                    var a1 = t.getAttributeNS(null, "class");  
+                    var a2 = document.querySelectorAll("." + a1 + "");
+                    for(var dd=0; dd<a2.length; dd++){
                         if(t.getAttributeNS(null, "id")!=a2[dd].getAttributeNS(null, "id")){
-                            let a3 = a2[dd].getAttributeNS(null, "id");
+                            var a3 = a2[dd].getAttributeNS(null, "id");
                             document.getElementById(a3).setAttributeNS(null, "stroke-dashoffset", "0");
                             document.getElementById(a3).setAttributeNS(null, "stroke", "red");
                             document.getElementById(a3).setAttributeNS(null, "stroke-opacity", (inputs[6]/100));
-                            let dash=document.getElementById(a3).getTotalLength(0);
-                            let dash2=dash/18;
+                            var dash=document.getElementById(a3).getTotalLength(0);
+                            var dash2=dash/18;
                             document.getElementById(a3).setAttributeNS(null, "stroke-dasharray", dash2);
                             anima = document.createElementNS(NS, "animate");
                             setAttributes(anima, {"class":"animas", "id": "anima"+n0+"", "begin": ""+inputs[11]+"s; anima"+n0+".end", "dur": ""+inputs[12]+"s", "repeatCount":"1", "attributeName": "stroke-dashoffset", "keyTimes": "0; 1", "values": "" + dash + "; 0"});
@@ -551,8 +551,8 @@ svg.addEventListener('click',
                 t.setAttributeNS(null, "stroke-dashoffset", "0");
                 t.setAttributeNS(null, "stroke", "red");
                 t.setAttributeNS(null, "stroke-opacity", (inputs[6]/100));
-                let dash=t.getTotalLength(0);
-                let dash2=dash/18;
+                var dash=t.getTotalLength(0);
+                var dash2=dash/18;
                 t.setAttributeNS(null, "stroke-dasharray", dash2);
                 anima = document.createElementNS(NS, "animate");
                 setAttributes(anima, {"class":"animas", "id": "anima"+n0+"", "begin": ""+inputs[11]+"s; anima"+n0+".end", "dur": ""+inputs[12]+"s", "repeatCount":"1", "attributeName": "stroke-dashoffset", "keyTimes": "0; 1", "values": "" + dash + "; 0"});
@@ -565,19 +565,19 @@ svg.addEventListener('click',
             if(t.getAttributeNS(null, "stroke") == "red"){
                 solves();
             }else{
-                let one0 = t.getPointAtLength(0);
-                let one1 = one0.matrixTransform(svg.getScreenCTM().inverse());
-                let two0 = t.getTotalLength(0);
-                let three = Math.round(two0/2);
-                let four = t.getPointAtLength(three);
+                var one0 = t.getPointAtLength(0);
+                var one1 = one0.matrixTransform(svg.getScreenCTM().inverse());
+                var two0 = t.getTotalLength(0);
+                var three = Math.round(two0/2);
+                var four = t.getPointAtLength(three);
                 xx = parseInt(Math.round(((four.x - one0.x)/2)+one0.x));
                 yy = parseInt(Math.round(((four.y - one0.y)/2)+one0.y));
                 
                 if(value7=="triangle"){
                     three = Math.round((two0/6)*4);
                     four = t.getPointAtLength(three);
-                    let five = Math.round((two0/6)*2);
-                    let six = t.getPointAtLength(five);
+                    var five = Math.round((two0/6)*2);
+                    var six = t.getPointAtLength(five);
                     xx = parseInt(Math.round(((four.x - one0.x)/2)+one0.x));
                     yy = parseInt(Math.round(((six.y - one0.y)/2)+one0.y));
                 }
@@ -601,25 +601,25 @@ svg.addEventListener('click',
 
 // function for clearing the svg from already placed elements
 function clears(){
-    let svg = document.getElementById("mysvg");
-    let circles = document.querySelectorAll(".circles");
-    let paths = document.querySelectorAll("path");
-    let patterns = document.querySelectorAll("pattern");
-    let grads = document.querySelectorAll("linearGradient");
+    var svg = document.getElementById("mysvg");
+    var circles = document.querySelectorAll(".circles");
+    var paths = document.querySelectorAll("path");
+    var patterns = document.querySelectorAll("pattern");
+    var grads = document.querySelectorAll("linearGradient");
     if(choice==0){
         document.getElementById("clearer").innerHTML="Are you sure?";
         setTimeout(retry, 5000);
     }else{
-        for(let i=1; i<paths.length; i++){
+        for(var i=1; i<paths.length; i++){
             paths[i].remove();
         }
-        for(let i=1; i<patterns.length; i++){
+        for(var i=1; i<patterns.length; i++){
             patterns[i].remove();
         }
-        for(let i=0; i<circles.length; i++){
+        for(var i=0; i<circles.length; i++){
             circles[i].remove();
         }
-        for(let i=0; i<grads.length; i++){
+        for(var i=0; i<grads.length; i++){
             grads[i].remove();
         }
         document.getElementById("path0").setAttribute("fill", "none");
@@ -655,7 +655,7 @@ function popup(orig){
 
 function sizes(){
     if(ways=="resize"){
-        for(let sv=1; sv<8; sv++){
+        for(var sv=1; sv<8; sv++){
             svg.classList.remove("svg"+sv);
         }
         
@@ -719,8 +719,8 @@ function popupClose(){
 
 //select import menu options for display
 function imports(){
-    let selected = select[3].options[select[3].selectedIndex].value;
-    for(let b=9; b<14; b++){
+    var selected = select[3].options[select[3].selectedIndex].value;
+    for(var b=9; b<14; b++){
         document.getElementById("b"+b).classList.add("hides");
     }
     
@@ -739,8 +739,8 @@ function imports(){
 // main svg background selecting function
 function imports2(){
     if(ways=="backgr"){
-        let selected = select[3].options[select[3].selectedIndex].value;
-        let selected2 = select[4].options[select[4].selectedIndex].value;
+        var selected = select[3].options[select[3].selectedIndex].value;
+        var selected2 = select[4].options[select[4].selectedIndex].value;
         
         if(selected=="solid"){
             document.getElementById("path0").setAttribute("fill", inputs[13]);
@@ -796,8 +796,8 @@ function imports2(){
             defs.appendChild(patterns);
             document.getElementById("path0").setAttribute("fill", "url(#pats0)");  
         }else if(selected=="image"){
-            let one = inputs[18].split('/').pop();
-            let two = one.replace("C:\\fakepath\\", "");
+            var one = inputs[18].split('/').pop();
+            var two = one.replace("C:\\fakepath\\", "");
             document.getElementById("backgr-img").setAttributeNS(null, "href", two);
             document.getElementById("path0").setAttribute("fill", "url(#img1)");
             document.getElementById("path0").setAttribute("fill-opacity", "1");
@@ -821,7 +821,7 @@ function exports(){
 
 //svg export function
 function exportSvg(){       
-    let a = document.createElement('a');
+    var a = document.createElement('a');
     a.download = "image.svg";
     a.href = url;
     url0.revokeObjectURL(svg);
@@ -844,8 +844,8 @@ function exportPng(){
     image2.onload = () => {
         context.drawImage(image, 0, 0, ww, hh);
         context.drawImage(image2, 0, 0, ww, hh);
-        let png = canvas.toDataURL();
-        let a = document.createElement('a');
+        var png = canvas.toDataURL();
+        var a = document.createElement('a');
         a.download = "image.png";
         a.href = png;
         document.body.appendChild(a);
