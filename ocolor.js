@@ -391,7 +391,7 @@ function applies(srcs){
 var svg = document.getElementById("mysvg"), NS = svg.getAttribute('xmlns');
 
 
-// second part of the applier function, created to handle letiations in user-selected parameters
+// second part of the applier function, created to handle variations in user-selected parameters
 function create(){
     var svg0 = document.getElementById("mysvg"), NS = svg0.getAttribute('xmlns');
     shapes = document.createElementNS(NS, 'path');
@@ -636,7 +636,7 @@ function retry(){
 }
 
 
-// defining global letiables for import & export functions
+// defining global variables for import & export functions
 function enters(){
     canvas = document.createElement('canvas');
     context = canvas.getContext('2d');
